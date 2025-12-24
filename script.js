@@ -3,37 +3,38 @@
   "use strict";
 
   const brochure = document.getElementById("brochure");
-  const pagerDots = document.querySelectorAll(".pager .dot");
+  const dots = document.querySelectorAll(".p-dot");
 
   const state = { open: false };
 
-  function applyState() {
+  function apply() {
     brochure.classList.toggle("is-open", state.open);
     brochure.classList.toggle("is-closed", !state.open);
     brochure.setAttribute("aria-expanded", String(state.open));
 
-    // Pager: Page 1 (closed cover) vs Page 2 (open spread)
-    if (pagerDots.length >= 2) {
-      pagerDots[0].classList.toggle("is-on", !state.open);
-      pagerDots[1].classList.toggle("is-on", state.open);
+    // Pager: dot 1 = cover, dot 2 = open spread
+    if (dots.length >= 2) {
+      dots[0].classList.toggle("is-on", !state.open);
+      dots[1].classList.toggle("is-on", state.open);
     }
   }
 
-  function toggleOpen() {
+  function toggle() {
     state.open = !state.open;
-    applyState();
+    apply();
   }
 
-  // Tap anywhere on the brochure toggles open/close
-  brochure.addEventListener("click", toggleOpen);
+  // Tap/click anywhere on brochure
+  brochure.addEventListener("click", toggle, { passive: true });
 
   // Keyboard accessibility
   brochure.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      toggleOpen();
+      toggle();
     }
   });
 
-  applyState();
+  // Start state: closed (cover only)
+  apply();
 })();
