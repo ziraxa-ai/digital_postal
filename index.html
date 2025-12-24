@@ -10,260 +10,224 @@
 </head>
 
 <body>
-  <main class="page">
-    <header class="sr-only">
-      <h1>ZIRAXA | زیرکسا</h1>
-    </header>
-
-    <section class="stage" aria-label="Interactive brochure">
-      <div class="hint" aria-hidden="true">
-        Tap / Click to open
+  <main class="app" aria-label="ZIRAXA digital brochure">
+    <section class="stage">
+      <div class="ui-top">
+        <div class="brand-pill" aria-hidden="true">
+          <span class="pill-dot"></span>
+          <span class="pill-text">ZIRAXA</span>
+        </div>
+        <div class="helper-text" aria-hidden="true">Click / Tap to open</div>
       </div>
 
       <!--
-        Interaction rules:
-        - First load: only Panel 1 visible (closed, front side)
-        - Click/tap brochure: toggles open/close
-        - Optional: Flip button shows back side (Panel 4) without changing open/close requirement
+        Two-page experience:
+        - Page 1: Front cover (closed) -> shows Panel 1 only
+        - Page 2: Open brochure -> shows Panel 2 + Panel 3
       -->
-      <div class="brochure-shell">
-        <button class="flip-btn" type="button" aria-label="Flip brochure to back cover">
-          Flip
-        </button>
+      <div
+        id="brochure"
+        class="brochure is-closed"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+        aria-label="Brochure. Click to open or close."
+      >
+        <!-- Left fixed panel (Panel 2) -->
+        <article class="leaf leaf-left" aria-hidden="true">
+          <section class="face face-front panel panel-2">
+            <div class="panel-inner">
+              <div class="frame">
+                <div class="frame-corner tl" aria-hidden="true"></div>
+                <div class="frame-corner tr" aria-hidden="true"></div>
+                <div class="frame-corner bl" aria-hidden="true"></div>
+                <div class="frame-corner br" aria-hidden="true"></div>
 
-        <div
-          id="brochure"
-          class="brochure is-closed is-front"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-label="ZIRAXA brochure. Click to open or close."
-        >
-          <div class="brochure-3d" aria-hidden="true"></div>
+                <header class="panel-head">
+                  <h2 class="title serif">About ZIRAXA</h2>
+                  <div class="rule" aria-hidden="true"></div>
+                </header>
 
-          <!-- LEFT LEAF (Panel 2 front / Panel 4 back) -->
-          <article class="leaf leaf-left" aria-hidden="true">
-            <section class="face face-front panel panel-2">
-              <div class="panel-inner">
-                <div class="panel-frame">
-                  <div class="panel-top">
-                    <h2 class="panel-title serif">About ZIRAXA</h2>
-                    <h3 class="panel-subtitle sans">درباره زیرکسا</h3>
-                    <div class="rule"></div>
-                  </div>
+                <div class="panel-body">
+                  <p class="copy serif">
+                    ZIRAXA designs and builds premium digital products with a focus on reliability,
+                    clarity, and speed. We deliver modern software that looks refined, performs
+                    consistently, and scales confidently.
+                  </p>
+                  <p class="copy serif">
+                    From architecture to interface craft, we apply disciplined engineering and
+                    clean UX to create experiences that feel effortless—backed by secure delivery,
+                    testing, and maintainable code.
+                  </p>
 
-                  <div class="panel-body">
-                    <p class="copy serif">
-                      ZIRAXA builds premium, reliable digital systems for organizations that demand precision and speed.
-                      We design and deliver software that feels luxurious to use—clear, secure, and engineered for scale.
-                    </p>
-
-                    <p class="copy sans rtl" lang="fa" dir="rtl">
-                      زیرکسا راهکارهای دیجیتالِ دقیق و قابل‌اتکا می‌سازد؛ از طراحی تا پیاده‌سازی،
-                      با تمرکز بر کیفیت، امنیت و تجربه کاربری ممتاز. ما محصولات نرم‌افزاری را طوری می‌سازیم
-                      که سریع، شفاف و آماده رشد باشند.
-                    </p>
-
-                    <div class="feature-list">
-                      <div class="feature">
-                        <div class="feature-ico" aria-hidden="true">
-                          <!-- Trophy/quality badge (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                            <path d="M7 4h10v3a5 5 0 0 1-10 0V4Z" class="ico-stroke"/>
-                            <path d="M9 20h6" class="ico-stroke"/>
-                            <path d="M10 17h4" class="ico-stroke"/>
-                            <path d="M7 7H5a2 2 0 0 0 2 2" class="ico-stroke"/>
-                            <path d="M17 7h2a2 2 0 0 1-2 2" class="ico-stroke"/>
-                            <path d="M12 12v5" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="feature-text">
-                          <div class="feature-title serif">Quality Services</div>
-                          <div class="feature-desc sans">High standards, clean UI, robust delivery.</div>
-                        </div>
-                      </div>
-
-                      <div class="feature">
-                        <div class="feature-ico" aria-hidden="true">
-                          <!-- Lightbulb (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                            <path d="M9 18h6" class="ico-stroke"/>
-                            <path d="M10 22h4" class="ico-stroke"/>
-                            <path d="M8.5 14.5a6 6 0 1 1 7 0c-.7.6-1.1 1.2-1.2 2.5H9.7c-.1-1.3-.5-1.9-1.2-2.5Z" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="feature-text">
-                          <div class="feature-title serif">Innovative Solutions</div>
-                          <div class="feature-desc sans">Modern architecture with timeless craftsmanship.</div>
-                        </div>
-                      </div>
-
-                      <div class="feature">
-                        <div class="feature-ico" aria-hidden="true">
-                          <!-- Shield (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                            <path d="M12 3 20 7v6c0 5-3.5 8-8 8s-8-3-8-8V7l8-4Z" class="ico-stroke"/>
-                            <path d="M9 12l2 2 4-5" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="feature-text">
-                          <div class="feature-title serif">Reliability &amp; Trust</div>
-                          <div class="feature-desc sans">Security-first, tested, and maintainable.</div>
-                        </div>
+                  <div class="key-points" role="list" aria-label="Highlights">
+                    <div class="kp" role="listitem">
+                      <span class="kp-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                          <path d="M7 4h10v3a5 5 0 0 1-10 0V4Z" class="ico-stroke"/>
+                          <path d="M7 7H5a2 2 0 0 0 2 2" class="ico-stroke"/>
+                          <path d="M17 7h2a2 2 0 0 1-2 2" class="ico-stroke"/>
+                          <path d="M12 12v5" class="ico-stroke"/>
+                          <path d="M9 20h6" class="ico-stroke"/>
+                          <path d="M10 17h4" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="kp-text">
+                        <div class="kp-title serif">Premium Delivery</div>
+                        <div class="kp-desc">Polished UI, stable performance, and secure foundations.</div>
                       </div>
                     </div>
 
-                    <div class="panel-footer">
-                      <div class="contact-line">
-                        <span class="contact-big serif">09197839834</span>
+                    <div class="kp" role="listitem">
+                      <span class="kp-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                          <path d="M8.5 14.5a6 6 0 1 1 7 0c-.7.6-1.1 1.2-1.2 2.5H9.7c-.1-1.3-.5-1.9-1.2-2.5Z" class="ico-stroke"/>
+                          <path d="M9 18h6" class="ico-stroke"/>
+                          <path d="M10 22h4" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="kp-text">
+                        <div class="kp-title serif">Modern Craft</div>
+                        <div class="kp-desc">Thoughtful UX with production-grade engineering.</div>
                       </div>
-                      <div class="panel-bottom-rule"></div>
-                      <div class="site serif">Ziraxa.ir</div>
+                    </div>
+
+                    <div class="kp" role="listitem">
+                      <span class="kp-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                          <path d="M12 3 20 7v6c0 5-3.5 8-8 8s-8-3-8-8V7l8-4Z" class="ico-stroke"/>
+                          <path d="M9 12l2 2 4-5" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="kp-text">
+                        <div class="kp-title serif">Reliability</div>
+                        <div class="kp-desc">Testing, observability, and maintainable systems.</div>
+                      </div>
                     </div>
                   </div>
+
+                  <footer class="panel-foot">
+                    <div class="contact-line">
+                      <span class="contact-big serif">09197839834</span>
+                    </div>
+                    <div class="rule thin" aria-hidden="true"></div>
+                    <div class="site serif">Ziraxa.ir</div>
+                  </footer>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
+        </article>
 
-            <section class="face face-back panel panel-4">
-              <div class="panel-inner">
-                <div class="panel-frame">
-                  <div class="panel-top center">
-                    <div class="mini-ornament" aria-hidden="true"></div>
-                    <h2 class="panel-title serif">ZIRAXA</h2>
-                    <h3 class="panel-subtitle sans">زیرکسا</h3>
-                    <div class="rule"></div>
-                  </div>
+        <!-- Right hinged panel (Panel 3 front / Panel 1 back) -->
+        <article class="leaf leaf-right" aria-hidden="true">
+          <!-- Panel 3 (inside right) -->
+          <section class="face face-front panel panel-3">
+            <div class="panel-inner">
+              <div class="frame">
+                <div class="frame-corner tl" aria-hidden="true"></div>
+                <div class="frame-corner tr" aria-hidden="true"></div>
+                <div class="frame-corner bl" aria-hidden="true"></div>
+                <div class="frame-corner br" aria-hidden="true"></div>
 
-                  <div class="panel-body center">
-                    <div class="qr-wrap" aria-label="QR code to Ziraxa.ir">
-                      <canvas id="qrCanvas" width="220" height="220" aria-hidden="true"></canvas>
-                      <div class="qr-caption sans">Scan to visit</div>
+                <header class="panel-head center">
+                  <h2 class="title serif">Our Services</h2>
+                  <div class="rule" aria-hidden="true"></div>
+                </header>
+
+                <div class="panel-body">
+                  <div class="services" role="list" aria-label="Services list">
+                    <div class="svc" role="listitem">
+                      <span class="svc-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+                          <path d="M9 18 3 12l6-6" class="ico-stroke"/>
+                          <path d="M15 6l6 6-6 6" class="ico-stroke"/>
+                          <path d="M10 20l4-16" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="svc-text">
+                        <div class="svc-title serif">Software Development</div>
+                        <div class="svc-desc">Web apps, dashboards, and product UI engineering.</div>
+                      </div>
                     </div>
 
-                    <div class="contact-stack">
-                      <div class="contact-big serif">09197839834</div>
-                      <div class="site serif">Ziraxa.ir</div>
-                      <div class="micro sans">
-                        خدمات آنلاین در سراسر جهان
-                        <span class="dot">•</span>
-                        Online services worldwide
+                    <div class="svc" role="listitem">
+                      <span class="svc-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+                          <path d="M6 7c0 1.7 2.7 3 6 3s6-1.3 6-3-2.7-3-6-3-6 1.3-6 3Z" class="ico-stroke"/>
+                          <path d="M6 7v10c0 1.7 2.7 3 6 3s6-1.3 6-3V7" class="ico-stroke"/>
+                          <path d="M6 12c0 1.7 2.7 3 6 3s6-1.3 6-3" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="svc-text">
+                        <div class="svc-title serif">Data Processing</div>
+                        <div class="svc-desc">ETL pipelines, analytics, and data quality automation.</div>
+                      </div>
+                    </div>
+
+                    <div class="svc" role="listitem">
+                      <span class="svc-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+                          <path d="M9 3h6" class="ico-stroke"/>
+                          <path d="M10 3v4" class="ico-stroke"/>
+                          <path d="M14 3v4" class="ico-stroke"/>
+                          <path d="M7 12a5 5 0 0 1 10 0v4a3 3 0 0 1-3 3H10a3 3 0 0 1-3-3v-4Z" class="ico-stroke"/>
+                          <path d="M9 13h.01M12 13h.01M15 13h.01" class="ico-stroke"/>
+                          <path d="M4 13h3M17 13h3" class="ico-stroke"/>
+                        </svg>
+                      </span>
+                      <div class="svc-text">
+                        <div class="svc-title serif">Artificial Intelligence Development</div>
+                        <div class="svc-desc">AI-powered products, assistants, and model integration.</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="panel-footer center">
-                    <div class="panel-bottom-rule"></div>
-                    <div class="micro sans dim">
-                      https://Ziraxa.ir
-                    </div>
-                  </div>
+                  <footer class="panel-foot center">
+                    <div class="rule thin" aria-hidden="true"></div>
+                    <div class="micro">Luxury black &amp; gold identity • Premium UI craftsmanship</div>
+                  </footer>
                 </div>
               </div>
-            </section>
-          </article>
+            </div>
+          </section>
 
-          <!-- RIGHT LEAF (Panel 3 front / Panel 1 back) -->
-          <article class="leaf leaf-right" aria-hidden="true">
-            <section class="face face-front panel panel-3">
-              <div class="panel-inner">
-                <div class="panel-frame">
-                  <div class="panel-top center">
-                    <h2 class="panel-title serif">Our Services</h2>
-                    <div class="rule"></div>
+          <!-- Panel 1 (front cover) on the back face of the right leaf -->
+          <section class="face face-back panel panel-1">
+            <div class="panel-inner">
+              <div class="frame cover-frame">
+                <div class="frame-corner tl" aria-hidden="true"></div>
+                <div class="frame-corner tr" aria-hidden="true"></div>
+                <div class="frame-corner bl" aria-hidden="true"></div>
+                <div class="frame-corner br" aria-hidden="true"></div>
+
+                <div class="cover">
+                  <div class="logo-wrap" aria-hidden="true">
+                    <!-- Place your logo file next to index.html and name it "brand-logo.png" -->
+                    <img class="logo" src="./brand-logo.png" alt="ZIRAXA logo" />
                   </div>
 
-                  <div class="panel-body">
-                    <div class="svc">
-                      <div class="svc-row">
-                        <div class="svc-ico" aria-hidden="true">
-                          <!-- Software dev icon (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-                            <path d="M9 18 3 12l6-6" class="ico-stroke"/>
-                            <path d="M15 6l6 6-6 6" class="ico-stroke"/>
-                            <path d="M10 20l4-16" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="svc-text">
-                          <div class="svc-title serif">Software Development</div>
-                          <div class="svc-desc sans">Custom web apps, dashboards, and product UI engineering.</div>
-                        </div>
-                      </div>
-
-                      <div class="svc-row">
-                        <div class="svc-ico" aria-hidden="true">
-                          <!-- Data processing icon (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-                            <path d="M6 7c0 1.7 2.7 3 6 3s6-1.3 6-3-2.7-3-6-3-6 1.3-6 3Z" class="ico-stroke"/>
-                            <path d="M6 7v10c0 1.7 2.7 3 6 3s6-1.3 6-3V7" class="ico-stroke"/>
-                            <path d="M6 12c0 1.7 2.7 3 6 3s6-1.3 6-3" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="svc-text">
-                          <div class="svc-title serif">Data Processing</div>
-                          <div class="svc-desc sans">Pipelines, ETL, analytics, and data quality automation.</div>
-                        </div>
-                      </div>
-
-                      <div class="svc-row">
-                        <div class="svc-ico" aria-hidden="true">
-                          <!-- AI icon (inline SVG) -->
-                          <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-                            <path d="M9 3h6" class="ico-stroke"/>
-                            <path d="M10 3v4" class="ico-stroke"/>
-                            <path d="M14 3v4" class="ico-stroke"/>
-                            <path d="M7 12a5 5 0 0 1 10 0v4a3 3 0 0 1-3 3H10a3 3 0 0 1-3-3v-4Z" class="ico-stroke"/>
-                            <path d="M9 13h.01M12 13h.01M15 13h.01" class="ico-stroke"/>
-                            <path d="M4 13h3M17 13h3" class="ico-stroke"/>
-                          </svg>
-                        </div>
-                        <div class="svc-text">
-                          <div class="svc-title serif">Artificial Intelligence Development</div>
-                          <div class="svc-desc sans">Model integration, assistants, automation, and AI-powered products.</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="panel-footer center">
-                      <div class="panel-bottom-rule"></div>
-                      <div class="micro sans dim">
-                        Premium engineering • Persian &amp; English support
-                      </div>
-                    </div>
+                  <div class="cover-text">
+                    <div class="cover-name serif gold-text">ZIRAXA</div>
+                    <div class="rule" aria-hidden="true"></div>
+                    <div class="cover-phone serif gold-text">09197839834</div>
                   </div>
+
+                  <div class="cover-bottom micro dim">Click / Tap to open</div>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
+        </article>
 
-            <section class="face face-back panel panel-1">
-              <div class="panel-inner">
-                <div class="panel-frame">
-                  <div class="cover-top center">
-                    <div class="logo-wrap" aria-hidden="true">
-                      <img
-                        class="logo"
-                        alt="ZIRAXA logo"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAYAAAC+ZpjcAAEAAElEQVR42lz9S691W5elB7Xe+xhzrrXf8L19n0U1UoREJgQhJQmYqk1QmJbWwqZy1uQmZJbGmQmJYk2m9dQ4QWmV4Yp8e+u9w0cJx1Vq6k7z8v3n3m7cQm0v0q9k0e3Q2m2m8v9m7l8P0f8d3o0mQ9oZkqJw7n9V7g7h5W1oQkqH9v7m8c8l4KJb2tXwCw8fP8b9mCwS9nqH3m6f0oV8c0P3mY1QwKp9gQv2mJ2x6kKp0l8mJQmDgH8cB0w8kY8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ8m0cYQv8mYhXkKp5mZ9w1mXg1cB8w8pQ==" />
-                    </div>
+        <!-- Click-catcher for “tap anywhere” -->
+        <div class="tap-layer" aria-hidden="true"></div>
+      </div>
 
-                    <div class="brand">
-                      <div class="brand-en serif gold-text">ZIRAXA</div>
-                      <div class="brand-fa sans gold-text rtl" lang="fa" dir="rtl">زیرکسا</div>
-                      <div class="rule"></div>
-                      <div class="brand-mobile serif gold-text">09197839834</div>
-                    </div>
-                  </div>
-
-                  <div class="cover-bottom center">
-                    <div class="micro sans dim">Tap / Click to open</div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </article>
-
-          <!-- Click-catcher overlay (ensures "tap anywhere" works cleanly) -->
-          <div class="tap-layer" aria-hidden="true"></div>
+      <div class="ui-bottom" aria-hidden="true">
+        <div class="pager">
+          <span class="dot is-on"></span>
+          <span class="dot"></span>
         </div>
       </div>
     </section>
